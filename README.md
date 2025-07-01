@@ -76,7 +76,11 @@ Die Vorsortierte Liste ist am schnellsten, was sinn ergibt, da 0 swaps durchgef�
 
 Trotz erhöter menge an Swaps wird die Invers-Vorsortierte Liste schneller sortiert als die Zufällig Sortierte Liste.
 
--> lässt sich nur durch Rust Compiler optimierungen erklären. Wie genau diese Funktionieren, habe ich (noch) nicht herausgefunden.
+Auch das verwenden einer quadratisch absteigenden Liste, hat das ergebniss nicht geändert.
+
+Das nutzen einer zufällig absteigenden Liste wäre ein nächster Ansatz um festzustellen, ob hier die Zeiten ebenfalls vom erwartetem Ergebniss abweichen.
+
+-> Das Verhalten lässt sich nur durch Rust Compiler Optimierungen erklären. Wie genau diese Funktionieren, habe ich (noch) nicht herausgefunden.
 
 ## Code
 ```rust
