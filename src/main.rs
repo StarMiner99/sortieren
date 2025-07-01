@@ -3,10 +3,12 @@ use std::time::{SystemTime, UNIX_EPOCH};
 
 const LIST_LEN: usize = 100_000;
 fn main() {
+    // random list:
     //let mut rand_array: [u64; LIST_LEN] = rand::random();
 
+    // sorted list:
     let mut rand_array: [u64; LIST_LEN] = core::array::from_fn(|i| i as u64);
-    rand_array.reverse();
+    rand_array.reverse(); // comment this for not-reversed list
 
     let start = SystemTime::now().duration_since(UNIX_EPOCH).unwrap();
     bubble_sort(&mut rand_array);
