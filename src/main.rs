@@ -1,9 +1,12 @@
 use std::time::{SystemTime, UNIX_EPOCH};
 
 
-const LIST_LEN: usize = 100000;
+const LIST_LEN: usize = 100_000;
 fn main() {
-    let mut rand_array: [u64; LIST_LEN] = rand::random();
+    //let mut rand_array: [u64; LIST_LEN] = rand::random();
+
+    let mut rand_array: [u64; LIST_LEN] = core::array::from_fn(|i| i as u64);
+    rand_array.reverse();
 
     let start = SystemTime::now().duration_since(UNIX_EPOCH).unwrap();
     bubble_sort(&mut rand_array);
@@ -11,7 +14,8 @@ fn main() {
 
     let duration = end - start;
 
-    println!("Took {}ms for {} elements.", duration.as_millis(), LIST_LEN)
+    println!("Took {}us for {} elements.", duration.as_millis(), LIST_LEN);
+    assert!(rand_array.windows(2).all(|w| w[0] <= w[1]), "Result is not sorted!");
 
 }
 
