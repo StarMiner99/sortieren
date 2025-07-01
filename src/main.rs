@@ -1,13 +1,12 @@
 use std::time::{SystemTime, UNIX_EPOCH};
 
-
 const LIST_LEN: usize = 100_000;
 fn main() {
     // random list:
     let mut rand_array: [u64; LIST_LEN] = rand::random();
 
     // sorted list:
-    //let mut rand_array: [u64; LIST_LEN] = core::array::from_fn(|i| (i * i) as u64);
+    //let mut rand_array: [u64; LIST_LEN] = core::array::from_fn(|i| i as u64);
     //rand_array.reverse(); // comment this for not-reversed list
 
     println!("{} {}", rand_array[0], rand_array[LIST_LEN -1]);
@@ -20,7 +19,6 @@ fn main() {
 
     println!("Took {}ms for {} elements. {} swaps", duration.as_millis(), LIST_LEN, swaps);
     assert!(rand_array.windows(2).all(|w| w[0] <= w[1]), "Result is not sorted!");
-
 }
 
 fn bubble_sort(arr: &mut [u64; LIST_LEN]) -> usize {
@@ -39,5 +37,4 @@ fn bubble_sort(arr: &mut [u64; LIST_LEN]) -> usize {
     }
 
     swaps
-    
 }
